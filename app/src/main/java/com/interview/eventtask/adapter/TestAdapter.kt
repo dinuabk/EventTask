@@ -16,9 +16,10 @@ class TestAdapter (private val context: Context,
 ) : RecyclerView.Adapter<TestAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val titleTV: TextView = view.findViewById(R.id.txtName)
-        val subtitleTV: TextView = view.findViewById(R.id.txtDate)
+        val textViewName: TextView = view.findViewById(R.id.txtName)
+        val textViewDate: TextView = view.findViewById(R.id.txtDate)
         val textViewTime:TextView = view.findViewById(R.id.txtTime)
+        val textViewInfo:TextView = view.findViewById(R.id.txtInfo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,9 +33,10 @@ class TestAdapter (private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.titleTV.text = data.name;
-        holder.subtitleTV.text = data.localDate
+        holder.textViewName.text = data.name;
+        holder.textViewDate.text = data.localDate
         holder.textViewTime.text = data.localTime
+        holder.textViewInfo.text = data.info
 
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickListener(data)
